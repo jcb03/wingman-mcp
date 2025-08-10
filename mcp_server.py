@@ -10,13 +10,13 @@ import json
 mcp = FastMCP("Dating Wingman")
 
 # --- Tool: validate (required by Puch) ---
-@mcp.tool
+@mcp.tool()
 async def validate() -> str:
     """Validation tool required by Puch"""
     return get_my_number()
 
 # --- Tool: analyze_profile_screenshot ---
-@mcp.tool
+@mcp.tool()
 async def analyze_profile_screenshot(
     image_base64: str,
     analysis_type: str = "comprehensive"
@@ -55,7 +55,7 @@ async def analyze_profile_screenshot(
         return f"❌ Error analyzing profile: {str(e)}"
 
 # --- Tool: generate_conversation_replies ---
-@mcp.tool
+@mcp.tool()
 async def generate_conversation_replies(
     conversation_context: str,
     goal: str = "continue conversation"
@@ -85,7 +85,7 @@ async def generate_conversation_replies(
         return f"❌ Error generating replies: {str(e)}"
 
 # --- Tool: improve_bio ---
-@mcp.tool
+@mcp.tool()
 async def improve_bio(
     current_bio: str,
     additional_info: str = ""
@@ -116,7 +116,7 @@ async def improve_bio(
         return f"❌ Error improving bio: {str(e)}"
 
 # --- Tool: generate_opener ---
-@mcp.tool
+@mcp.tool()
 async def generate_opener(
     match_info: str
 ) -> str:
@@ -146,7 +146,7 @@ async def generate_opener(
         return f"❌ Error generating openers: {str(e)}"
 
 # --- Tool: roast_profile ---
-@mcp.tool
+@mcp.tool()
 async def roast_profile(
     profile_description: str,
     humor_level: str = "medium"
@@ -177,7 +177,7 @@ async def roast_profile(
         return f"❌ Error roasting profile: {str(e)}"
 
 # --- Tool: detect_red_flags ---
-@mcp.tool
+@mcp.tool()
 async def detect_red_flags(
     conversation_or_profile: str,
     context_type: str = "conversation"
@@ -233,7 +233,7 @@ Provide a safety assessment and advice.
         return f"❌ Error analyzing for red flags: {str(e)}"
 
 # --- Tool: plan_date ---
-@mcp.tool
+@mcp.tool()
 async def plan_date(
     location: str,
     budget: str = "medium",
@@ -292,7 +292,7 @@ Make it memorable but appropriate for the relationship stage.
         return f"❌ Error planning date: {str(e)}"
 
 # --- Tool: help ---
-@mcp.tool
+@mcp.tool()
 async def help() -> str:
     """Get help and see all available Dating Wingman tools"""
     return """
